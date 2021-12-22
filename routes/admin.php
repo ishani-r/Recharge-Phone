@@ -36,11 +36,7 @@ Route::group(['middleware' => 'auth:admin'], function () {
     
     // --------------------------------------User Profile-------------------------------------------
     Route::resource('dashboard', Auth\UserController::class)->middleware(['permission:view-user-table']);
-    Route::resource('details', Auth\UserDetailsController::class)->middleware(['permission:view-userdetail-table']);
-    
-    
-    
-    
+    Route::resource('details', Auth\UserDetailsController::class)->middleware(['permission:view-userdetail-table']);    
     
     // ---------------------------------------- Permission ---------------------------------------
     Route::resource('permission', Auth\PermissionController::class)->middleware(['permission:view-permission-table']);

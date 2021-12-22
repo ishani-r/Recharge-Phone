@@ -22,15 +22,15 @@ class PointListDatatable extends DataTable
         return datatables()
             ->eloquent($query)
             // ->addColumn('action', 'pointlistdatatable.action')
-            ->addColumn('action', function($data){
+            ->addColumn('action', function ($data) {
                 $result = '<div class="btn-group">';
                 // $result .= '<a href="'.route('admin.show_user_   list',$data->id).'"><button class="btn-sm btn-outline-warning" style="border-radius: 2.1875rem;"><i class="fa fa-eye" aria-hidden="true"></i></button></a>';
                 // $result .= '<a href="'.route('admin.permission.edit',$data->id).'"><button class="btn-sm btn-outline-info" style="border-radius: 2.1875rem;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>';
-                $result .= '<button type="submit" data-id="'.$data->id.'" class="btn-sm btn-outline-danger delete" style="border-radius: 2.1875rem;"><i class="fa fa-trash" aria-hidden="true"></i></button></form></div>';
+                $result .= '<button type="submit" data-id="' . $data->id . '" class="btn-sm btn-outline-danger delete" style="border-radius: 2.1875rem;"><i class="fa fa-trash" aria-hidden="true"></i></button></form></div>';
                 return $result;
             })
 
-            
+
             ->editColumn('status', function ($data) {
                 if ($data['status'] == 'Active') {
                     return '<button type="button" data-id="' . $data->id . '" class="badge rounded-pill bg-success status"> Active </button>';
@@ -44,12 +44,14 @@ class PointListDatatable extends DataTable
                 if ($data['user_send_request'] == "Panding") {
                     // dd(1);
                     return '<button type="button" data-id="' . $data->id . '" class="btn btn-warning mr-1 mb-1 asdd"> Panding </button>';
+                } else if ($data['user_send_request'] == NULL) {
+                    return 'NoSend Request';
                 } else {
                     return '<button type="button" data-id="' . $data->id . '" class="btn btn-success mr-1 mb-1 asdd"> Approved </button>';
                 }
             })
 
-            ->rawColumns(['action', 'status','user_send_request'])
+            ->rawColumns(['action', 'status', 'user_send_request'])
             ->addIndexColumn();
     }
 
@@ -72,18 +74,18 @@ class PointListDatatable extends DataTable
     public function html()
     {
         return $this->builder()
-                    ->setTableId('pointlistdatatable-table')
-                    ->columns($this->getColumns())
-                    ->minifiedAjax()
-                    ->dom('Bfrtip')
-                    ->orderBy(1)
-                    ->buttons(
-                        Button::make('create'),
-                        Button::make('export'),
-                        Button::make('print'),
-                        Button::make('reset'),
-                        Button::make('reload')
-                    );
+            ->setTableId('pointlistdatatable-table')
+            ->columns($this->getColumns())
+            ->minifiedAjax()
+            ->dom('Bfrtip')
+            ->orderBy(1)
+            ->buttons(
+                Button::make('create'),
+                Button::make('export'),
+                Button::make('print'),
+                Button::make('reset'),
+                Button::make('reload')
+            );
     }
 
     /**
@@ -101,10 +103,10 @@ class PointListDatatable extends DataTable
             Column::make('user_send_request'),
             Column::make('status'),
             Column::computed('action')
-                  ->exportable(false)
-                  ->printable(false)
-                  ->width(60)
-                  ->addClass('text-center'),
+                ->exportable(false)
+                ->printable(false)
+                ->width(60)
+                ->addClass('text-center'),
         ];
     }
 
