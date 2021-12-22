@@ -44,7 +44,7 @@ class PointListDatatable extends DataTable
                 // dd($data['user_send_request']);
                 if ($data['user_send_request'] == "Panding") {
                     // dd(1);
-                    return '<button type="button" data-id="' . $data->id . '" class="btn btn-warning mr-1 mb-1 asdd"><i class="fa fa-spinner fa-spin"></i> Panding </button>';
+                    return '<button type="button" data-id="' . $data->id . '" class="btn btn-warning mr-1 mb-1 asdd"><i class="fa fa-spinner fa-spin aa"></i> Panding </button>';
                 } else if ($data['user_send_request'] == NULL) {
                     return 'NoSend Request';
                 } else {

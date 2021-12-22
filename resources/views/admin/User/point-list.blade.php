@@ -12,7 +12,7 @@
                         <h4 class="card-title">{{ trans('Point Table')}}</h4>
                         <p class="card-category"> {{ trans('Here is a List for Point')}}</p>
                     </div>
-
+                    
                     <div class="card-body">
                         <div class="table-responsive-sg">
                             {!! $dataTable->table(['class' => 'table table-bordered dt-responsive nowrap']) !!}
@@ -26,6 +26,7 @@
 @endsection
 @push('js')
 <script>
+    $('.aa').hide();
     $(document).on('click', '.asdd', function() {
         var id = $(this).data('id');
         var number = $(this).attr('id', 'asds');
@@ -65,7 +66,7 @@
             }
         })
     });
-
+    
       // ---------------------------------------Delete-----------------------------
       $(document).on('click', '.delete', function() {
         swal({
