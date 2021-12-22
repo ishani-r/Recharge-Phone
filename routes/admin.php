@@ -10,6 +10,7 @@ Route::group(['namespace' => 'Auth'], function () {
 });
 
 Route::group(['middleware' => 'auth:admin'], function () {
+    Route::delete('destroy-notifi/{id}',  'Auth\NotificationController@destroyNotifi')->name('destroy_nitifi');
 
     // point
     Route::get('point-list',        'Auth\PointController@pointList')->name('point_list');
@@ -49,11 +50,14 @@ Route::group(['middleware' => 'auth:admin'], function () {
     // ---------------------------------------- Admin ---------------------------------------
     Route::resource('adminuser', Auth\AdminController::class)->middleware(['permission:view-admin-table']);
     
-    // Point
     // User Post
     Route::get('list-point',            'Auth\UserPostController@listPoint')->name('list_point');
     Route::get('show-user-list/{id}',            'Auth\UserPostController@showUserList')->name('show_user_list');
     Route::get('list-user',             'Auth\UserPostController@listUser')->name('list_user');
     Route::get('status-user',           'Auth\UserPostController@statusUser')->name('status_user');
     Route::delete('destroy-User/{id}',  'Auth\UserPostController@destroyUser')->name('destroy_user');
+    
+    // Notification
+    Route::get('list-notification',            'Auth\NotificationController@notificationList')->name('list_notification');
+
 });

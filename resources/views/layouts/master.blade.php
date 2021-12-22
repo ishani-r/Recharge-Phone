@@ -7,7 +7,7 @@
   <link rel="icon" type="image/png" href="{{asset('admin/assets/assets/img/favicon.png')}}">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Soulmate
+    Phone Recharge
   </title>
 
   <!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script> -->

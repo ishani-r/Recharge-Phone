@@ -3,6 +3,7 @@
 namespace App\DataTables;
 
 use App\Models\Point;
+use App\Models\User;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
@@ -43,14 +44,17 @@ class PointListDatatable extends DataTable
                 // dd($data['user_send_request']);
                 if ($data['user_send_request'] == "Panding") {
                     // dd(1);
-                    return '<button type="button" data-id="' . $data->id . '" class="btn btn-warning mr-1 mb-1 asdd"> Panding </button>';
+                    return '<button type="button" data-id="' . $data->id . '" class="btn btn-warning mr-1 mb-1 asdd"><i class="fa fa-spinner fa-spin"></i> Panding </button>';
                 } else if ($data['user_send_request'] == NULL) {
                     return 'NoSend Request';
                 } else {
                     return '<button type="button" data-id="' . $data->id . '" class="btn btn-success mr-1 mb-1 asdd"> Approved </button>';
                 }
             })
-
+            ->editColumn('user_id', function ($data) {
+                $quiz = User::where('id', $data->user_id)->first();
+                return $quiz->name;
+            })
             ->rawColumns(['action', 'status', 'user_send_request'])
             ->addIndexColumn();
     }
@@ -77,7 +81,7 @@ class PointListDatatable extends DataTable
             ->setTableId('pointlistdatatable-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->dom('Bfrtip')
+            ->dom('Blfrtip')
             ->orderBy(1)
             ->buttons(
                 Button::make('create'),
@@ -101,6 +105,7 @@ class PointListDatatable extends DataTable
             Column::make('total_post'),
             Column::make('total_point'),
             Column::make('user_send_request'),
+            Column::make('request_point'),
             Column::make('status'),
             Column::computed('action')
                 ->exportable(false)

@@ -25,9 +25,8 @@
 </div>
 @endsection
 @push('js')
-{!! $dataTable->scripts() !!}
 <script>
-// ---------------------------------------Delete-----------------------------
+    // ---------------------------------------Delete-----------------------------
     $(document).on('click', '.delete', function() {
         swal({
                 title: "Are you sure?",
@@ -39,7 +38,7 @@
             .then((willDelete) => {
                 if (willDelete) {
                     var id = $(this).data('id');
-                    var url = '{{route("admin.destroy_user", ":queryId")}}';
+                    var url = '{{route("admin.destroy_nitifi", ":queryId")}}';
                     url = url.replace(':queryId', id);
                     var number = $(this).attr('id', 'asd');
                     $.ajax({
@@ -62,5 +61,6 @@
                 }
             });
     });
-    </script>
+</script>
+{!! $dataTable->scripts() !!}
 @endpush

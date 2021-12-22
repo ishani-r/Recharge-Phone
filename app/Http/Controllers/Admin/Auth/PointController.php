@@ -34,6 +34,8 @@ class PointController extends Controller
             $notification = new Notification();
             $notification->user_id = $useremail->id;
             $notification->message = "Your Recharge success...";
+            $notification->recharge_point = $user->request_point;
+            $notification->status = "success";
             $notification->save();
 
             $recharge = Recharge::select('id')->get()->last();

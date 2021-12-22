@@ -27,7 +27,6 @@
 @push('js')
 <script>
     $(document).on('click', '.asdd', function() {
-        alert('asd');
         var id = $(this).data('id');
         var number = $(this).attr('id', 'asds');
         $.ajax({
@@ -45,7 +44,6 @@
     });
     // ---------------------------------------status-----------------------------
     $(document).on('click', '.status', function() {
-        alert('status');
         var id = $(this).data('id');
         var number = $(this).attr('id', 'asd');
         $.ajax({
