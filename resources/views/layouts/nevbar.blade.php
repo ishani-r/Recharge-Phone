@@ -21,7 +21,7 @@
             <p>Point Details</p>
          </a>
       </li> -->
-      <li class="nav-item {{ request()->is('*list-point*') ? 'active' : '' }}">
+      <li class="nav-item {{ request()->is('*point-list*') ? 'active' : '' }}">
          <a class="nav-link" href="{{route('admin.point_list')}}">
             <i class="material-icons">person</i>
             <p>User Recharge Details</p>

@@ -1,3 +1,20 @@
+- User Register   5:30 hours 
+- create category & subcategory seeder
+- Create article crud in admin
+  - give subcategory name as autocomplete suggestion when create (use select2 for autocomplete)
+- article like/dislike & comment by user
+- list article in yajra in admin
+  - show article detail
+  - show User
+  - show subcategory and their main category
+  - show like count
+  - show comments of that article
+  - filter by category & subcategory name
+  - filter by user name
+* store only sub_cat id in article
+- create cron job to send mail to user whose account admin inactive
+
+
 Ishani Ranpariya
 Work Report 14/10/2021
 -	login and logout complete

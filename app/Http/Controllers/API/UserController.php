@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Requests\Admin\UserRequest;
+use App\Http\Requests\Admin\UpdateUserRequest;
 
 use App\Contracts\UserContract;
 use App\Repositories\UserRepository;
@@ -21,7 +22,7 @@ class UserController extends Controller
     {
         $user = $this->User->store($request->all());
         return response()->json([
-            'message' => 'Data sucessfully inserted',
+            'message' => 'Data Inserted sucessfully',
             'user' => $user
         ]);
     }
@@ -32,7 +33,7 @@ class UserController extends Controller
         return $show;
     }
 
-    public function update(Request $request, $id)
+    public function update(UpdateUserRequest $request, $id)
     {
         $data = $this->User->update($request->all(),$id);
         return response()->json([

@@ -78,7 +78,7 @@
                      @csrf
                      <div class="form-group">
                         <label>Recharge Point</label>
-                        <input type="text" id="request_point" name="request_point" class="form-control @error('request_point') is-invalid @enderror" placeholder="Enter Recharge Point">
+                        <input type="number" id="request_point" name="request_point" class="form-control @error('request_point') is-invalid @enderror" placeholder="Enter Recharge Point">
                         @error('request_point')
                         <span class="invalid-feedback" role="alert">
                            <strong>{{ $message }}</strong>

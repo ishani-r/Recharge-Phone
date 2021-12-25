@@ -21,6 +21,9 @@ use App\Repositories\SettingRepository;
 use App\Contracts\MessageContract;
 use App\Repositories\MessageRepository;
 
+use App\Contracts\PostContract;
+use App\Repositories\PostRepository;
+
 class RepositoryServiceProvider extends ServiceProvider
 {
     public function register()
@@ -31,6 +34,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(PremiumContract::class, PremiumRepository::class);
         $this->app->bind(SettingContract::class, SettingRepository::class);
         $this->app->bind(MessageContract::class, MessageRepository::class);
+        $this->app->bind(PostContract::class, PostRepository::class);
     }
 }
 
