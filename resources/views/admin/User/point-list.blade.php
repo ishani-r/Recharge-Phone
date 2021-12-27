@@ -25,6 +25,8 @@
 </div>
 @endsection
 @push('js')
+<script src="jquery.toaster.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" />
 <script>
     $('.aa').hide();
     $(document).on('click', '.asdd', function() {
@@ -37,8 +39,7 @@
                 id: id,
             },
             dataType: "json",
-            success: function(data) {
-                
+            success: function(data) {        
                 $('#pointlistdatatable-table').DataTable().ajax.reload();
             }
         })

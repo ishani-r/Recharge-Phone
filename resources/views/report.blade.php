@@ -15,6 +15,20 @@
 - create cron job to send mail to user whose account admin inactive
 
 
+====================
+toastr.error(
+                    'Success',
+                    'Request Approved', {
+                        timeOut: 3000,
+                        fadeOut: 3000,
+                        onHidden: function() {
+                            // $("#hospital_id").load(location.href + " #hospital_id");
+                            $('#pointlistdatatable-table').DataTable().ajax.reload();
+                        }
+                    }
+                );
+=============
+
 Ishani Ranpariya
 Work Report 14/10/2021
 -	login and logout complete

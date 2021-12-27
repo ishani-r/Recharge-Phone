@@ -30,7 +30,11 @@ class UserController extends Controller
     public function show($id=null)
     {
         $show = $this->User->show($id);
-        return $show;
+        if(empty($show)){
+            return "This ID is not stored in the database.";
+        } else {
+            return $show;
+        }
     }
 
     public function update(UpdateUserRequest $request, $id)

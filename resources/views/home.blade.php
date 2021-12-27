@@ -37,7 +37,6 @@
                         $rech = App\Models\Recharge::where('user_id', Illuminate\Support\Facades\Auth::Guard('web')->user()->id)->get();
                         ?>
                         {{$no=1}}
-
                         <div class="modal-body">
                            <table class="table table-striped table-bordered text-center">
                               <tr>
@@ -54,7 +53,6 @@
                                  <td>{{ $name->status }}</td>
                               </tr>
                               @endforeach
-
                            </table>
                         </div>
                      </div>
