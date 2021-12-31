@@ -25,7 +25,7 @@ class PointController extends Controller
         $id = $request['id'];
         $user = Point::find($id);
         
-        if($user->user_send_request == "Panding")
+        if($user->user_send_request == "Pending")
         {
             $useremail = User::where('id', $user->user_id)->first();
             
@@ -40,12 +40,12 @@ class PointController extends Controller
 
             $recharge = Recharge::select('id')->get()->last();
             // dd($recharge);
-            $recharge->status = "Succes";
+            $recharge->status = "success";
             // dd($recharge);
             $recharge->save();
             $user->user_send_request = "Approved";
         }else{
-            $user->user_send_request = "Panding";
+            $user->user_send_request = "Pending";
         }
         $user->save();
         return $user;

@@ -56,7 +56,7 @@ class PostRepository implements PostContract
       } else {
          $id = $total_point->id;
          $point_request = Point::find($id);
-         $point_request->user_send_request = "Panding";
+         $point_request->user_send_request = "Pending";
          $point_request->request_point = $array['request_point'];
          $point_request->total_point = $point_request->total_point - $array['request_point'];
          $point_request->save();
@@ -65,7 +65,7 @@ class PostRepository implements PostContract
          $recharge->user_id = Auth::user()->id;
          $recharge->recharge_point = $array['request_point'];
          $recharge->total_point = $point_request->total_point;
-         $recharge->status = "Panding";
+         $recharge->status = "Pending";
          $recharge->save();
 
          $data['recharge'] = "Request Send Suucessfully.....😊 ";
