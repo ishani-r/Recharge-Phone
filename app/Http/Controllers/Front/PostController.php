@@ -40,13 +40,12 @@ class PostController extends Controller
     public function sendRequest(RechargeRequest $request)
     {
         $data = $this->Post->sendRequest($request->all());
-        if(isset($data['recharge']))
-        {
-        //  return Session::flash("success", "Request Send Suucessfully..... ");
-         return redirect()->back()->with("success", "Request Send Suucessfully..... ");
+        if (isset($data['recharge'])) {
+            return redirect()->back()->with("success", "Request Send Suucessfully..... ");
+        } else if (isset($data['message'])) {
+            return redirect()->back()->with("error", "Ooops Your Points is less than 30 points..... ");
         } else {
-        //  return Session::flash("error", "Ooops Your Points is less than 30 points..... ");
-         return redirect()->back()->with("error", "Ooops Your Points is less than 30 points..... ");
-        }        
+            return redirect()->back()->with("error", "You cannot do recharge out of your total points.....");
+        }
     }
 }

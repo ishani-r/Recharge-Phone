@@ -47,9 +47,12 @@ class PostRepository implements PostContract
    public function sendRequest(array $array)
    {
       $total_point = Point::where('user_id', Auth::user()->id)->first();
+      // dd($total_point->total_point);
 
       if ($total_point->total_point < 31) {
          $data['message'] = "Ooops Your Points is less than 30 points.....😔 ";
+      } else if($array['request_point'] > $total_point->total_point){
+         $data['error'] = "you cannot do recharge out of your total points.....";
       } else {
          $id = $total_point->id;
          $point_request = Point::find($id);

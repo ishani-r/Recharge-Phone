@@ -170,7 +170,7 @@
             },
             image: {
                required: true,
-					extension: "jpg|jpeg|png"
+               extension: "jpg|jpeg|png"
             },
          },
          messages: {
@@ -205,11 +205,17 @@
       });
 
       $('.asd').click(function() {
+         $("#create_post").trigger('reset');
+         location.reload();
          $('.error').html('');
          $('input').removeClass('is-invalid');
+
       });
       $('.close').click(function() {
+         location.reload();
+         $('#create_post').reset();
          $('.error').html('');
+         $('#title_name').html('');
          $('input').removeClass('is-invalid');
 
       });

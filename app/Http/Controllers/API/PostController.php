@@ -23,13 +23,22 @@ class PostController extends Controller
             'message' => "Post Created Successfully"
         ]);
     }
-    
+
     public function sendRequest(RechargeRequest $request)
     {
         $data = $this->Post->sendRequest($request->all());
-        return response([
-            'data' => $data,
-            'message' => "Request Send Successfully"
-        ]);
+        if (isset($data['message'])) {
+            return response([
+                'message' => "Ooops Your Points is less than 30 points.....😔"
+            ]);
+        } elseif (isset($data['error'])) {
+            return response([
+                'message' => "you cannot do recharge out of your total points....."
+            ]);
+        } else {
+            return response([
+                'data' => $data,
+            ]);
+        }
     }
 }
